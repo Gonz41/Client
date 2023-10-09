@@ -19,15 +19,15 @@ public class App
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-            out.writeBytes("ciao a tutti");
+            out.writeBytes("ciao a tutti" + "\n");
             String risp = in.readLine();
 
             System.out.println("Il server ha risposto: " + risp);
-
-            socket.close();
             
+            socket.close();
         }catch (Exception e){
             System.out.println(e.getMessage());
+            System.exit(1);
         }
     }
 }
